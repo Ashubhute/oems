@@ -9,9 +9,9 @@ import Swal from 'sweetalert2';
 export class AppComponent {
   title = 'oems';
 
-  sweetalert(){
-    Swal.fire("Sweet allert add");
-  }
+  // sweetalert(){
+  //   Swal.fire("Sweet allert add");
+  // }
 
 
 }
