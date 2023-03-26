@@ -13,14 +13,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {AuthInterCeptorInterceptorProvider} from './pages/all-services/authInterCeptor/auth-inter-ceptor.interceptor';
+import { AdmindashboardComponent } from './pages/admindashboard/admindashboard.component';
+import { UserdashboardComponent } from './pages/userdashboard/userdashboard.component';
 
-
-
-const routes:Routes=[
-  {path:"signUp",component:SignupComponent,pathMatch:"full"},
-
-
-];
 
 
 
@@ -30,22 +28,26 @@ const routes:Routes=[
     AppComponent,
     NavbarComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    AdmindashboardComponent,
+    UserdashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
 
 
   ],
-  providers: [],
+  providers: [AuthInterCeptorInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

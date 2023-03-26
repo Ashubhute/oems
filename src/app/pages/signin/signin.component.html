@@ -1,1 +1,40 @@
-<p>signin works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <mat-card>
+              <div class="row justify-content-center">
+                  <div class="col-4">
+                   <img src="../../../assets/img/career info logo.png" class="w-100" alt="">
+                  </div>
+              </div>
+           <div class="row">
+              <mat-card-title class="text-center my-5">Login</mat-card-title>
+               
+              <form [formGroup]="signIn" (ngSubmit)="userSingIn()">
+                  <mat-form-field class="col-12 px-2" appearance="fill">
+                      <mat-label>User Name</mat-label>
+                      <input matInput name="username" formControlName="username" type="text">
+                  </mat-form-field>
+
+                  <mat-form-field class="col-12 px-2" appearance="fill">
+                        <mat-label>password</mat-label>
+                        <input matInput name="password" formControlName="password" [type]="hide ? 'password' : 'text'">
+                        <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </span>
+                      </mat-form-field>
+
+                     
+                      
+                      <div class="col-12 text-center">
+                          <button mat-raised-button type="submit" class="btn mx-2 btn-success" [disabled]="signIn.invalid">Sign Up</button>
+                          <button mat-raised-button type="reset" class="btn mx-2 btn-danger">reset</button>
+                      </div>
+              </form>
+           </div>
+          </mat-card>
+      </div>
+  </div>
+</div>
+
+ 

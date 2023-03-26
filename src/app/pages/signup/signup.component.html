@@ -2,42 +2,47 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <mat-card>
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                     <img src="../../../assets/img/career info logo.png" class="w-100" alt="">
+                    </div>
+                </div>
              <div class="row">
-                <mat-card-title class="text-center">Registration !!</mat-card-title>
+                <mat-card-title class="text-center my-5">Registration !!</mat-card-title>
                  
-                <form >
+                <form [formGroup]="Signup" (ngSubmit)="userSignup()">
                     <mat-form-field class="col-12 px-2" appearance="fill">
                         <mat-label>User Name</mat-label>
-                        <input matInput type="text">
+                        <input matInput name="username" formControlName="username" type="text">
                     </mat-form-field>
                     <mat-form-field class="col-6 px-2" appearance="fill">
                         <mat-label>First Name</mat-label>
-                        <input matInput type="text">
+                        <input matInput name="firstname" formControlName="firstname" type="text">
                     </mat-form-field>
                     <mat-form-field class="col-6 px-2" appearance="fill">
                         <mat-label>Last Name</mat-label>
-                        <input matInput type="text">
+                        <input matInput name="lastname" formControlName="lastname" type="text">
                     </mat-form-field>
             
                         <mat-form-field class="col-12 px-2" appearance="fill">
                           <mat-label>password</mat-label>
-                          <input matInput [type]="hide ? 'password' : 'text'">
-                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <input matInput name="password" formControlName="password" [type]="hide ? 'password' : 'text'">
+                          <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                          </button>
+                          </span>
                         </mat-form-field>
 
                         <mat-form-field class="col-6 px-2" appearance="fill">
                             <mat-label>Email</mat-label>
-                            <input matInput type="email">
+                            <input matInput name="email" formControlName="email" type="email">
                         </mat-form-field>
 
                         <mat-form-field class="col-6 px-2" appearance="fill">
                             <mat-label>Phone No</mat-label>
-                            <input matInput type="number">
+                            <input matInput name="phone" formControlName="phone" type="number">
                         </mat-form-field>
                         <div class="col-12 text-center">
-                            <button mat-raised-button type="submit" class="btn mx-2 btn-success">Sign Up</button>
+                            <button mat-raised-button type="submit" class="btn mx-2 btn-success" [disabled]="Signup.invalid">Sign Up</button>
                             <button mat-raised-button type="reset" class="btn mx-2 btn-danger">reset</button>
                         </div>
                 </form>
